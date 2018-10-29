@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <script type="text/javascript" src="../../js/test.js"></script>
+
+</head>
+
+<body>
+    <div class="col-md-6 offset-md-3 text-xs-center">
+        <h3>Conversion Aciton 조회</h3>
+        <div>
+            <label for="hashcode">블록 해시값:</label>
+            <input type="text" id="hashcode" />
+            <button type="submit" onclick="getInfo()" class="btn btn-primary">블록 조회</button>
+        </div>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">광고주</th>
+                    <th scope="col">상품명</th>
+                    <th scope="col">조회수</th>
+                    <th scope="col">구매수</th>
+                    <th scope="col">회원가입수</th>
+                    <th scope="col">다운로드수</th>
+                    <th scope="col">총액</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>
+                        <script type="text/javascript">
+                            document.write(getSponserName());
+                        </script>
+                    </td>
+                    <td>
+                        <script type="text/javascript">
+                            document.write(getProductName());
+                        </script>
+                    </td>
+                    <td>
+                        <script type="text/javascript">
+                            document.write(getHits());
+                        </script>
+                    </td>
+                    <td>
+                        <script type="text/javascript">
+                            document.write(getBuy());
+                        </script>
+                    </td>
+                    <td>
+                        <script type="text/javascript">
+                            document.write(getSignUp());
+                        </script>
+                    </td>
+                    <td>
+                        <script type="text/javascript">
+                            document.write(getDownload());
+                        </script>
+                    </td>
+                    <td>
+                        <script type="text/javascript">
+                            document.write(getTotalPrize());
+                        </script>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
