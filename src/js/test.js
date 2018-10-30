@@ -1,58 +1,141 @@
-function requestAd()
-{
-        var spo_id = document.getElementById("spo_id");
-        var product_name = document.getElementById("product_name");
-        var prize_hits = document.getElementById("prize_hits");
-        var prize_buy = document.getElementById("prize_buy");
-        var prize_signUp = document.getElementById("prize_signUp");
-        var prize_download = document.getElementById("prize_download");
 
+var getJSON = function(url) {
+    return new Promise(function(resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('get', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+            var status = xhr.status;
+            if (status == 200) {
+                resolve(xhr.response);
+            } else {
+                reject(status);
+            }
+        };
+        xhr.send();
+    });
+};
 
+var postJSON = function(url,body) {
+    return new Promise(function(resolve, reject) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', url, true);
+        xhr.responseType = 'json';
+        xhr.onload = function() {
+            var status = xhr.status;
+            if (status == 200) {
+                resolve(xhr.response);
+            } else {
+                reject(status);
+            }
+        };
+        xhr.send(body);
+    });
+};
+
+function contractExec(url) {
+    var body = {"idx":10};
+    postJSON(url,body).then(function(data){
+        var block = JSON.parse(data);
+        var address = block.data.contractAddress;
+        var msg = document.getElementById("message");
+        msg.innerHTML = address;
+    }, function(status){
+        alert('Something went wrong with postJSON.');
+    });
 }
 
 
+function getBlockInfo(url) {
 
+    var params = document.getElementById("contractAddress").value;
+    url += "?contractAddress="+params;
+    getJSON(url).then(function(data) {
+        var block = JSON.parse(data);
+        var prize = [getPrizeHits(), getPrizeBuy(), getPrizeSignUp(), getPrizeDownload()];
+        var ca = [data.data.conversionAction.hits, data.data.conversionAction.buy,  data.data.conversionAction.signUp, data.data.conversionAction.download];
+        var totalPrize = 0;
+        for (var i=0;i<ca.length;i++){
+            totalPrize += prize[i]*ca[i];
+        }
+        var table = document.getElementById("blockInfo");
+        var row = table.insertRow(0);
+        row.insertCell(0).innerHTML = getSponserName();
+        row.insertCell(1).innerHTML = getProductName();
+        row.insertCell(2).innerHTML = ca[0];
+        row.insertCell(3).innerHTML = ca[1];
+        row.insertCell(4).innerHTML = ca[2];
+        row.insertCell(5).innerHTML = ca[3];
+        row.insertCell(6).innerHTML = totalPrize;
+    }, function(status) { //error detection....
+        alert('Something went wrong with getJSON.');
+    });
+
+    /*
+    var data = {
+        "status": 200,
+        "code": 200,
+        "message": "success",
+        "data": {
+            "conversionAction": {
+                "download": 20,
+                "signUp": 100,
+                "hits": 350,
+                "buy": 50
+            }
+        }
+    };
+    */
+}
 
 function getSponserName() {
     return "전진우";
 }
-function getProductName(){
+
+function getProductName() {
     return "SC 모바일";
 }
-function getPrizeHits(){
+
+function getPrizeHits() {
     return 10;
 }
-function getPrizeBuy(){
+
+function getPrizeBuy() {
     return 3000;
 }
-function getPrizeSignUp(){
+
+function getPrizeSignUp() {
     return 100;
 }
-function getPrizeDownload(){
+
+function getPrizeDownload() {
     return 2000;
 }
-function getTotalPrize(){
+
+function getTotalPrize() {
     return 450000;
 }
-function contractExec(){
-    console.log("컨트랙트 실행");
-}
 
 
 
-
-function getHits(){
+/*
+function getHits() {
     return 350;
 }
-function getBuy(){
+
+function getBuy() {
     return 50;
 }
-function getSignUp(){
+
+function getSignUp() {
     return 100;
 }
-function getDownload(){
+
+function getDownload() {
     return 20;
 }
-function getTotalPrize(){
-    return getPrizeHits()*getHits() + getPrizeBuy()*getBuy() + getPrizeSignUp()*getSignUp() + getPrizeDownload()*getDownload();
+
+function getTotalPrize() {
+    return getPrizeHits() * getHits() + getPrizeBuy() * getBuy() + getPrizeSignUp() * getSignUp() + getPrizeDownload() * getDownload();
 }
+*/
