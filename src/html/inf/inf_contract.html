@@ -9,13 +9,15 @@
 
 <body>
     <div class="col-md-6 offset-md-3 text-xs-center">
+        <br><br>
         <h3>광고 계약 체결 창</h3>
+        <br><br>
     </div>
     <div class="col-md-6 offset-md-3">
         <table class="table">
             <thead class="thead-light">
                 <tr>
-                    <th scope="col">Attribute</th>
+                    <th scope="col">Column</th>
                     <th scope="col">Value</th>
                 </tr>
             </thead>
@@ -66,7 +68,12 @@
         </table>
     </div>
     <div class="col-md-6 offset-md-3 text-xs-center">
-        <button type="submit" onclick="contractExec()" class="btn btn-primary">계약 체결하기</button>
+        <br>
+        <button type="submit" onclick="contractExec('http://www.34.219.226.18:3000')" class="btn btn-primary">계약 체결하기</button>
+        <div class="alert alert-info" role="alert" id="message">
+            Address of the transaction will be shown here.
+        </div>
+        <br>
     </div>
 
 </body>
