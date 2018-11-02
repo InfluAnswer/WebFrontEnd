@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <script type="text/javascript" src="../js/test.js"></script>
+</head>
+
+<body>
+    <div class="col-md-6 offset-md-3 text-xs-center">
+        <br><br>
+        <h3>광고 계약 체결 창</h3>
+        <br><br>
+    </div>
+    <div class="col-md-6 offset-md-3">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">Column</th>
+                    <th scope="col">Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">광고주</th>
+                    <td >
+                        <script type="text/javascript">
+                            document.write(getSponserName());
+                        </script>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">상품명</th>
+                    <td >
+                        <script type="text/javascript">
+                            document.write(getProductName());
+                        </script>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">조회수 당</th>
+                    <td >
+                        <script type="text/javascript">
+                            document.write(getPrizeHits());
+                        </script>
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">구매 당</th>
+                    <td><script type="text/javascript">
+                        document.write(getPrizeBuy());
+                    </script></td>
+                </tr>
+                <tr>
+                    <th scope="row">회원가입 당</th>
+                    <td><script type="text/javascript">
+                        document.write(getPrizeSignUp());
+                    </script></td>
+                </tr>
+                <tr>
+                    <th scope="row">다운로드 당</th>
+                    <td><script type="text/javascript">
+                        document.write(getPrizeDownload());
+                    </script></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-6 offset-md-3 text-xs-center">
+        <br>
+        <button type="submit" onclick="contractExec('http://www.34.219.226.18:3000')" class="btn btn-primary">계약 체결하기</button>
+        <div class="alert alert-info" role="alert" id="message">
+            Address of the transaction will be shown here.
+        </div>
+        <br>
+    </div>
+
+</body>
+
+</html>
