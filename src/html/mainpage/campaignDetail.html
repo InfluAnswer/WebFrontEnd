@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title> 메인페이지_캠페인_세부정보 </title>
+       <meta charset = "utf-8">
+       <style> .centered {
+         display: table;
+         margin-left: auto;
+         margin-right: auto;
+       }
+       .icon {
+         float: left;
+         margin-right: 20px;
+       }
+       .content {
+         float: left;
+         width: 450px;
+       }
+       table {
+         width: 470px;
+         margin: auto;
+         text-align : center;
+       }
+       table, td {
+         border : 1px solid #bcbcbc;
+         height: 50px;
+       }</style>
+       <script language="javascript">
+         function showPopup() { window.open("regulationPopup.html", "규정 보여주기", "width=400, height=300, left=100, top=50"); }
+       </script>
+       <!-- <link rel="stylesheet" href="btnstyle.css"> -->
+	</head>
+	<body>
+    <div id = "mainMenus" class = "centered">
+
+  		<input type="button" style = "width:120pt;height:30pt;margin:3px" name="campaign" value="캠페인">
+      <input type="button" style = "width:120pt;height:30pt;margin:3px" name="myResult" value="나의 성과">
+      <input type="button" style = "width:120pt;height:30pt;margin:3px" name="checkIncome" value="수익 확인">
+      <input type="button" style = "width:120pt;height:30pt;margin:3px" name="Guide" value="가이드">
+    </div>
+    <br><br>
+
+    <div id="campaignDetail" class = "centered">
+      <div class="icon">
+        <img src="./between.png">
+      </div>
+      <div id="campaignTitleReward" class="content">
+        <p>
+          커플앱 비트윈 - 커플 메신저 & 디데이 계산도 한번에
+          </p>
+        <p>
+          가입당 수입 <b>3,200P</b>
+        </p>
+      </div>
+    </div>
+    <br><br>
+
+
+    <div class="centered">
+      <table>
+        <tbody>
+          <tr>
+            <td colspan="3">
+              <input type="button" style = "font-size:20px;width:120pt;height:30pt;margin : 10px 10px 10px 10px" name="pick" value="pick" >
+              <br>
+              <input type="checkbox" name="chkRegulation" value="regulation">
+              <font size="2">허위/부정홍보시 이용정지됩니다</font>
+              <input type="text" style="font-size:5px;width:50px;"value="자세히보기" onclick="showPopup();" />
+
+            </td>
+          </tr>
+          <tr>
+            <td>시작일</td>
+            <td>오늘 남은 수</td>
+            <td>기간</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+	</body>
+</html>
