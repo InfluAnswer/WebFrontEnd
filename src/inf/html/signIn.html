@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../css/bootstrap.min.css"/>
+    <script type="text/javascript" src="../js/signIn.js"></script>
+    <title>Influencer Login Page</title>
+</head>
+
+<body id="LoginForm">
+    <div class="container">
+        <h1 class="form-heading text-sm-center">Welcome to InfluAnswer</h1>
+        <div class="login-form">
+            <div class="main-div">
+                <div class="panel">
+                    <br>
+                    <h2>Login</h2>
+                    <div class="alert alert-primary" role="alert" id="loginStatus">
+                        Please enter your email and password
+                    </div>
+
+                </div>
+                    <div class="form-group">
+                        <div class="row">
+
+                            <div class="col col-xs-4">
+                                <label class="userType">User Type:</label>
+                            </div>
+
+                            <div class="col col-xs-4">
+                                <input type="radio" name="userType" id="userType1" value="inf" checked>Influencer</input>
+                            </div>
+
+                            <div class="col col-xs-4">
+                                <input type="radio" name="userType" id="userType2" value="adv">Advertiser</input>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block" onclick="login()">Login</button>
+                    <div class="forgot">
+                        <a href="signUp.html">Create account?</a>
+                    </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
