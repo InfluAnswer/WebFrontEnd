@@ -1,5 +1,4 @@
-
-var getJSON = function(url) {
+getJSON = function(url) {
     return new Promise(function(resolve, reject) {
         var xhr = new XMLHttpRequest();
         xhr.open('get', url, true);
@@ -12,14 +11,16 @@ var getJSON = function(url) {
                 reject(status);
             }
         };
+        console.log(body);
         xhr.send();
     });
 };
 
-var postJSON = function(url,body) {
+postJSON = function(url,body) {
     return new Promise(function(resolve, reject) {
         var xhr = new XMLHttpRequest();
         xhr.open('post', url, true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xhr.responseType = 'json';
         xhr.onload = function() {
             var status = xhr.status;
@@ -29,15 +30,17 @@ var postJSON = function(url,body) {
                 reject(status);
             }
         };
+        console.log(body);
         xhr.send(body);
     });
 };
 
+
+
 function contractExec(url) {
     var body = {"idx":10};
     postJSON(url,body).then(function(data){
-        var block = JSON.parse(data);
-        var address = block.data.contractAddress;
+        var address = data.data.contractAddress;
         var msg = document.getElementById("message");
         msg.innerHTML = address;
     }, function(status){
@@ -51,9 +54,8 @@ function getBlockInfo(url) {
     var params = document.getElementById("contractAddress").value;
     url += "?contractAddress="+params;
     getJSON(url).then(function(data) {
-        var block = JSON.parse(data);
         var prize = [getPrizeHits(), getPrizeBuy(), getPrizeSignUp(), getPrizeDownload()];
-        var ca = [block.data.conversionAction.hits, block.data.conversionAction.buy,  block.data.conversionAction.signUp, block.data.conversionAction.download];
+        var ca = [data.data.conversionAction.hits, data.data.conversionAction.buy,  data.data.conversionAction.signUp, data.data.conversionAction.download];
         var totalPrize = 0;
         for (var i=0;i<ca.length;i++){
             totalPrize += prize[i]*ca[i];
