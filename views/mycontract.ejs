@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../javascripts/mycontract.js"></script>
+    <script type="text/javascript">
+        if (!localStorage.getItem('token')) {
+            alert("로그인이 필요합니다!");
+            window.location.href = "/signIn";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="centered-align">
+        <ul>
+            <li><a href="/"><img src="../images/home.png" style="left:0px;"></a></li>
+            <script>
+                function logout(){
+                    localStorage.removeItem('token');
+                    alert("로그아웃 되었습니다!");
+                    window.location.href = "/"
+                }
+                if(!localStorage.getItem('token')){
+                    document.write('<li><a href="/signIn"><img src="../images/login.png" style="left:80%;"></a></li>');
+                }else{
+                    document.write('<li><a href="javascript:void(0);"><img src="../images/logout.png" style="left:80%;" onclick="logout();""></a></li>');
+                }
+            </script>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="col-md-6 offset-md-3 text-sm-center centered-align">
+            <br><br>
+            <h3>Conversion Aciton 조회</h3>
+            <br><br>
+            <div class="container">
+                <label for="hashcode">당신의 ID:</label>
+                <input type="text" id="contractAddress" disabled />
+                <button type="submit" id="contractQuery" class="btn btn-primary" onclick="getContractInfo()">블록 조회</button>
+            </div><br>
+            <div class="alert alert-info" role="alert" id="queryStatus">
+                나의 계약을 보려면 버튼을 누르세요.
+            </div>
+        </div>
+        <br>
+        <div class="col-sm-12 centered-align">
+            <table class="table contractInfo" id="contractInfo">
+                <thead class="thead-light text-sm-center">
+                    <tr>
+                        <th scope="col">계약 id</th>
+                        <th scope="col">캠페인 id</th>
+                        <th scope="col">인플루언서</th>
+                        <th scope="col">광고주</th>
+                        <th scope="col">CA 타입</th>
+                        <th scope="col">보상</th>
+                        <th scope="col">시작일</th>
+                        <th scope="col">종료일</th>
+                        <th scope="col">조회수</th>
+                        <th scope="col">Action 수</th>
+                    </tr>
+                </thead>
+                <tbody id="tBody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    window.onload = getID();
+</script>
+
+</html>

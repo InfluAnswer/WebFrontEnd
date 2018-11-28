@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title> 광고주_메인페이지</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script type="text/javascript" src="../javascripts/publisher.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript">
+        var token = localStorage.getItem('token');
+        if (token) {
+            var index = JSON.parse(atob(token.split('.')[1])).index;
+            if (index == 0) {
+                alert("광고주만 접근 가능한 페이지입니다!");
+                window.location.href = "/";
+            }
+        } else {
+            alert("로그인이 필요합니다!");
+            window.location.href = "/signIn";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="centered-align">
+        <ul>
+            <li><a href="/"><img src="../images/home.png" style="left:0px;"></a></li>
+            <script>
+                function logout(){
+                      localStorage.removeItem('token');
+                      alert("로그아웃 되었습니다!");
+                      window.location.href = "/"
+                  }
+                  if(!localStorage.getItem('token')){
+                      document.write('<li><a href="/signIn"><img src="../images/login.png" style="left:80%;"></a></li>');
+                  }else{
+                      document.write('<li><a href="javascript:void(0);"><img src="../images/logout.png" style="left:80%;" onclick="logout();""></a></li>');
+                  }
+              </script>
+        </ul>
+    </div>
+    <div>
+        <div class="btn-group " id="menus">
+            <div class="create_pub">광고 생성하기</div>
+            <button type="button" name="button" onclick="location.href='./publisher/newAdv'">새 광고 등록</button>
+            <button type="button" name="button" onclick="location.href='https://www.influanswer.cf/myContract'">나의 계약</button>
+            <button type="button" name="button" onclick="location.href='./publisher/myPage'">마이페이지</button>
+        </div>
+</body>
+
+</html>

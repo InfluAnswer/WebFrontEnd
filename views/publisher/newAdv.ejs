@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title> 광고주_메인페이지(유료클릭) </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script type="text/javascript" src="../../javascripts/publisher.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript">
+        var token = localStorage.getItem('token');
+        if (token) {
+            var index = JSON.parse(atob(token.split('.')[1])).index;
+            if (index == 0) {
+                alert("광고주만 접근 가능한 페이지입니다!");
+                window.location.href = "/";
+            }
+        } else {
+            alert("로그인이 필요합니다!");
+            window.location.href = "/signIn";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="centered-align">
+        <ul>
+            <li><a href="/"><img src="../images/home.png" style="left:0px;"></a></li>
+            <script>
+                function logout(){
+                      localStorage.removeItem('token');
+                      alert("로그아웃 되었습니다!");
+                      window.location.href = "/"
+                  }
+                  if(!localStorage.getItem('token')){
+                      document.write('<li><a href="/signIn"><img src="../images/login.png" style="left:80%;"></a></li>');
+                  }else{
+                      document.write('<li><a href="javascript:void(0);"><img src="../images/logout.png" style="left:80%;" onclick="logout();""></a></li>');
+                  }
+              </script>
+        </ul>
+    </div>
+    <div>
+        <div class="btn-group " id="menus">
+            <div class="create_pub">광고 생성하기</div>
+            <button type="button" name="button" onclick="location.href='./newAdv'">새 광고 등록</button>
+            <button type="button" name="button" onclick="location.href='../myContract'">나의 계약</button>
+            <button type="button" name="button" onclick="location.href='./myPage'">마이페이지</button>
+        </div>
+        <div class="menu_details">
+            <h1>새 광고를 등록 하시겠습니까?</h1>
+            <form class="advetiseForm" action="https://www.influanswerapi.cf/campaign/register" method="post" id="campaign_info" target="hiddenFrame" enctype="multipart/form-data">
+                <table class="advertiseForm">
+                    <tr>
+                        <td class="form_head">소속회사</td>
+                        <td class="form_content" colspan="3"> <input type="text" name="belong" style="width:100px" value="" required></td>
+                    </tr>
+                    <tr>
+                        <td class="form_head">담당자 성함</td>
+                        <td class="form_content" colspan="3"><input type="text" id="manager_name" name="manager_name" style="width:100px" value="" required></td>
+                    </tr>
+                    <tr>
+                        <td class="form_head">유선번호 or 휴대폰번호</td>
+                        <td class="form_content" colspan="3"><input type="text" id="phone_number" name="phone_number" style="width:400px" value="" placeholder=" -는 제외하고 입력해주세요" required></td>
+                    </tr>
+                    <tr>
+                        <td class="form_head">상품종류</td>
+                        <td class="form_content" style="width:400px">
+                            <select id="type" name="type">
+                                <option value="signUP">설치형</option>
+                                <option value="play">영상재생형</option>
+                                <option value="click">클릭형</option>
+                                <option value="reservation">예약이벤트</option>
+                                <option value="content">콘텐츠제작형</option>
+                                <option value="shopping">쇼핑형</option>
+                            </select>
+                        </td>
+                        <td class="form_head">광고 집행기간</td>
+                        <td class="form_content" style="width:400px"><input type="date" id="start_date" name="start_date" value="" required> ~ <input type="date" id="end_date" name="end_date" value="" required></td>
+                    </tr>
+                    <tr>
+                        <td class="form_head">집행 예산</td>
+                        <td class="form_content" style="width:400px"><input type="text" id="budget" name="budget" value="" required>만원</td>
+                        <td class="form_head">1회 성과당 비용</td>
+                        <td class="form_content" style="width:400px"><input type="text" id="reward" name="reward" value="" required>원</td>
+                    </tr>
+                    <tr>
+                        <td class="form_head">홍보 아이템</td>
+                        <td class="form_content" colspan="3"><input type="text" id="name" name="name" style="width:650px" value="" placeholder=" 예) 어플 - '애드픽'" required></td>
+                    </tr>
+                    <tr>
+                        <td class="form_head">관련 URL</td>
+                        <td class="form_content" colspan="3"><input type="text" id="URL" name="URL" style="width:650px" value="" placeholder=" 예) https://adpick.co.kr" required></td>
+                    </tr>
+                    <tr>
+                        <td class="form_head">관련 이미지</td>
+                        <td class="form_content" colspan="3"><input type="file" id="campaign_image" name="campaign_image" style="width:650px" value="" accept="image/*" required></td>
+                    </tr>
+                    <tr>
+                        <td class="form_head">문의내용</td>
+                        <td class="form_content" colspan="3"><input type="text" id="description" name="description" style="height:100px;width:650px" value="" required></td>
+                    </tr>
+                </table>
+                <br>
+                <div id="hidden_id">
+                </div>
+                <input type="button" class="button-pick" value="의뢰하기" onclick="adpost()">
+                <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

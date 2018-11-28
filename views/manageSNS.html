@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title> 메인페이지_캠페인_ejs </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../public/stylesheets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../javascripts/search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body id="searchCampaign">
+    <div id="mainMenus" class="centered-align">
+        <input type="button" class="button_main" name="campaign" value="캠페인">
+        <input type="button" class="button_main" name="myResult" value="나의 성과">
+        <input type="button" class="button_main" name="checkIncome" value="수익 확인">
+        <input type="button" class="button_main" name="Guide" value="가이드">
+    </div>
+    <br>
+
+    <div id="advertisementType" class="adv_type">
+        <div class="advTypeBtn">
+            광고종류
+            <input type="checkbox" id="chk1" name="typeInstall"><label for="chk1">.</label>
+            <input type="checkbox" id="chk2" name="typePlay"><label for="chk2">영상재생형</label>
+            <input type="checkbox" id="chk3" name="typeClick"><label for="chk3">클릭형</label>
+            <input type="checkbox" id="chk4" name="typeReservation"><label for="chk4">예약이벤트</label>
+            <input type="checkbox" id="chk5" name="typeContent"><label for="chk5">콘텐츠제작형</label>
+            <input type="checkbox" id="chk6" name="typeShopping"><label for="chk6">쇼핑형</label>
+            <br><br>
+        </div>
+        <div id="search" class="centered-align">
+            <input type="text" id="campaignSearch" class="textbox" placeholder="Search.." />
+            <Button type="submit" id="searchBtn" class="button_search" onclick="search()"><i class="fa fa-search"></i></button>
+        </div>
+
+    </div>
+    <br><br>
+    <table class="centered-align">
+        <tbody id="resultBody">
+
+        </tbody>
+    </table>
+
+    <div class="centered-align" id="item_list_all">
+
+    </div>
+
+
+</body>
+
+</html>

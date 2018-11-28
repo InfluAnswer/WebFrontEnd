@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title> 메인페이지_캠페인_ejs </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../javascripts/search.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript">
+        var token = localStorage.getItem('token');
+        if (token) {
+            var index = JSON.parse(atob(token.split('.')[1])).index;
+            if (index == 1) {
+                window.location.href = "/publisher";
+            }
+        }
+    </script>
+</head>
+
+<body id="searchCampaign">
+    <div class="centered-align">
+        <ul>
+            <li><a href="/"><img src="../images/home.png" style="left:0px;"></a></li>
+            <script>
+                function logout(){
+                    localStorage.removeItem('token');
+                    alert("로그아웃 되었습니다!");
+                    window.location.href = "/"
+                }
+                if(!localStorage.getItem('token')){
+                    document.write('<li><a href="/signIn"><img src="../images/login.png" style="left:80%;"></a></li>');
+                }else{
+                    document.write('<li><a href="javascript:void(0);"><img src="../images/logout.png" style="left:80%;" onclick="logout();""></a></li>');
+                }
+            </script>
+        </ul>
+    </div>
+    <div id="mainMenus" class="centered-align">
+        <input type="button" class="button_main" name="campaign" value="캠페인" onclick="location.href='./campaign'">
+        <input type="button" class="button_main" name="myResult" value="나의 성과">
+        <input type="button" class="button_main" name="checkIncome" value="수익 확인" onclick="location.href='./myContract'">
+        <input type="button" class="button_main" name="Guide" value="가이드">
+    </div>
+    <br>
+
+    <div id="advertisementType" class="adv_type">
+        <div class="advTypeBtn">
+            광고종류
+            <div class="selectBtn">
+                <ul>
+                    <li><input type="checkbox" id="chk1" />
+                        <label for="chk1"><img src="../images/install.png" /></label>
+                    </li>
+                    <li><input type="checkbox" id="chk2" />
+                        <label for="chk2"><img src="../images/play.png" /></label>
+                    </li>
+                    <li><input type="checkbox" id="chk3" />
+                        <label for="chk3"><img src="../images/click.png" /></label>
+                    </li>
+                    <li><input type="checkbox" id="chk4" />
+                        <label for="chk4"><img src="../images/reservation.png" /></label>
+                    </li>
+                    <li><input type="checkbox" id="chk5" />
+                        <label for="chk5"><img src="../images/content.png" /></label>
+                    </li>
+                    <li><input type="checkbox" id="chk6" />
+                        <label for="chk6"><img src="../images/shopping.png" /></label>
+                    </li>
+                </ul>
+            </div> <br><br>
+        </div>
+        <div id="search" class="centered-align">
+            <input type="text" id="campaignSearch" class="textbox" placeholder="Search.." />
+            <Button type="submit" id="searchBtn" class="button_search" onclick="search()"><i class="fa fa-search"></i></button>
+        </div>
+
+    </div>
+    <br><br>
+    <table class="centered-align">
+        <tbody id="resultBody">
+
+        </tbody>
+    </table>
+
+    <div class="centered-align" id="item_list_all">
+
+    </div>
+
+
+</body>
+
+</html>

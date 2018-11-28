@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> 메인페이지_캠페인_세부정보 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="../javascripts/detail.js"></script>
+    <script type="text/javascript">
+        var token = localStorage.getItem('token');
+        if (token) {
+            var index = JSON.parse(atob(token.split('.')[1])).index;
+            if (index == 1) {
+                window.location.href = "/publisher";
+            }
+        }
+        alert("로그인이 필요합니다!");
+        window.location.href = "/signIn";
+    </script>
+</head>
+
+<body>
+    <div class="centered-align">
+        <ul>
+            <li><a href="/"><img src="../images/home.png" style="left:0px;"></a></li>
+            <script>
+                function logout(){
+                    localStorage.removeItem('token');
+                    alert("로그아웃 되었습니다!");
+                    window.location.href = "/"
+                }
+                if(!localStorage.getItem('token')){
+                    document.write('<li><a href="/signIn"><img src="../images/login.png" style="left:80%;"></a></li>');
+                }else{
+                    document.write('<li><a href="javascript:void(0);"><img src="../images/logout.png" style="left:80%;" onclick="logout();""></a></li>');
+                }
+            </script>
+        </ul>
+    </div>
+    <div id="mainMenus" class="centered-align">
+        <input type="button" class="button_main" name="campaign" value="캠페인" onclick="location.href='https://www.influanswer.cf/campaign'">
+        <input type="button" class="button_main" name="myResult" value="나의 성과">
+        <input type="button" class="button_main" name="checkIncome" value="수익 확인" onclick="location.href='https://www.influanswer.cf/myContract'">
+        <input type="button" class="button_main" name="Guide" value="가이드">
+    </div>
+    <br><br>
+
+    <div id="campaignDetail" class="detail_main">
+        <div id="campaignImg" class="detail_image"> <img class="img_resize" src=<%=image %> /> </div>
+        <div id="campaignTitle" class="detail_title">
+            <%= name %>
+        </div>
+        <div id="campaignReward" class="detail_reward">
+            <%= reward %>
+        </div>
+        <input type="hidden" id="campaign_id" value="<%= campaign_id %>">
+        <input type="hidden" id="tracking_url" value="http://34.219.226.18:3001/trackingPage">
+    </div>
+    <br><br>
+    <div class="pick_main">
+        <table class="pick_table">
+            <tbody>
+                <tr class="contract_table">
+                    <td colspan="3" class="contract_table">
+                        <input type="button" class="button-pick" value="PICK" onclick="pick();"></input>
+                        <br>
+                        <input type="checkbox" name="chkRegulation" id="regulation" value="regulation">
+                        <font size="2">허위/부정홍보시 이용정지됩니다</font>
+                        <input type="text" style="font-size:5px;width:50px;" value="자세히보기" onclick="showPopup();" />
+                    </td>
+                </tr>
+                <tr class="date_table">
+                    <td class="date_table_detail">시작일 : <b>
+                            <%=start_date%></b></td>
+                    <td class="date_table_detail">오늘 남은 수</td>
+                    <td class="date_table_detail">기간 : <b>
+                            <%=end_date%></b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</body>
+
+</html>

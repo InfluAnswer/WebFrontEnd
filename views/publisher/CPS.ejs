@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title> 광고주_메인페이지(쇼핑판매) </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script type="text/javascript" src="../../javascripts/publisher.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript">
+        var token = localStorage.getItem('token');
+        if (token) {
+            var index = JSON.parse(atob(token.split('.')[1])).index;
+            if (index == 0) {
+                alert("광고주만 접근 가능한 페이지입니다!");
+                window.location.href = "/";
+            }
+        }
+        alert("로그인이 필요합니다!");
+        window.location.href = "/signIn";
+    </script>
+  </head>
+
+  <body>
+    <div>
+      <div class="btn-group "id="menus">
+        <div class="create_pub">광고 생성하기</div>
+        <button type="button" name="button" onclick="location.href='./ECPC'">유료클릭</button>
+        <button type="button" name="button" onclick="location.href='./NCPI'">앱실행</button>
+        <button type="button" name="button" onclick="location.href='./CPS'">쇼핑판매</button>
+        <button type="button" name="button" onclick="location.href='./CPV'">동영상조회</button>
+        <button type="button" name="button">마이페이지</button>
+      </div>
+      <div id="menu-deatils">
+        <h1>상품판매에 따른 수수료(CPS) 광고를 생성 하시겠습니까?</h1>
+        <form class="advetiseForm" action="index.html" method="post">
+          <table class="advertiseForm">
+            <tr>
+              <td class="form_head">소속회사</td>
+              <td class="form_content" colspan="3"> <input type="text" name="belong" style="width:100px" value=""></td>
+            </tr>
+            <tr>
+              <td class="form_head">담당자 성함</td>
+              <td class="form_content" colspan="3"><input type="text" name="directorName" style="width:100px" value=""></td>
+            </tr>
+            <tr>
+              <td class="form_head">이메일</td>
+              <td class="form_content" colspan="3"><input type="text" name="email" style="width:400px" value=""></td>
+            </tr>
+            <tr>
+              <td class="form_head">유선번호 or 휴대폰번호</td>
+              <td class="form_content" colspan="3"><input type="text" name="phoneNum" style="width:400px" value="" placeholder=" -는 제외하고 입력해주세요"></td>
+            </tr>
+            <tr>
+              <td class="form_head">문의상품</td>
+              <td class="form_content" style="width:400px" ><input type="text" name="contactProduct" value=""></td>
+              <td class="form_head">광고 집행기간</td>
+              <td class="form_content" style="width:400px"><input type="date" id="datepicker" name="startPeriod" value=""> ~ <input type="date" id="datepicker" name="endPeriod" value=""></td>
+            </tr>
+            <tr>
+              <td class="form_head">희망 커미션</td>
+              <td class="form_content" style="width:400px"><input type="text" name="budget" value="">만원</td>
+              <td class="form_head">총 커미션 예산</td>
+              <td class="form_content" style="width:400px"><input type="text" name="reward" value="">원</td>
+            </tr>
+            <tr>
+              <td class="form_head">홍보 아이템</td>
+              <td class="form_content" colspan="3"><input type="text" name="promoItem" style="width:650px" value="" placeholder=" 예) 어플 - '애드픽'"></td>
+            </tr>
+            <tr>
+              <td class="form_head">상품 URL</td>
+              <td class="form_content" colspan="3"><input type="text" name="relatedURL" style="width:650px" value="" placeholder=" 예) https://adpick.co.kr"></td>
+            </tr>
+            <tr>
+              <td class="form_head">문의내용</td>
+              <td class="form_content" colspan="3"><input type="text" name="inquiry" style="height:100px;width:650px" value=""></td>
+            </tr>
+          </table>
+          <br>
+          <input type="submit" class="button-pick" value="의뢰하기"></input>
+        </form>
+      </div>
+    </div>
+  </body>
+
+</html>

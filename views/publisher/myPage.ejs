@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title> 광고주_메인페이지(마이페이지) </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="../stylesheets/style.css" />
+    <script type="text/javascript" src="../../javascripts/myPageEdit.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript">
+        var token = localStorage.getItem('token');
+        if (token) {
+            var index = JSON.parse(atob(token.split('.')[1])).index;
+            if (index == 0) {
+                alert("광고주만 접근 가능한 페이지입니다!");
+                window.location.href = "/";
+            }
+        } else {
+            alert("로그인이 필요합니다!");
+            window.location.href = "/signIn";
+        }
+    </script>
+</head>
+
+<body>
+    <div class="centered-align">
+        <ul>
+            <li><a href="/"><img src="../images/home.png" style="left:0px;"></a></li>
+            <script>
+                function logout(){
+                      localStorage.removeItem('token');
+                      alert("로그아웃 되었습니다!");
+                      window.location.href = "/"
+                  }
+                  if(!localStorage.getItem('token')){
+                      document.write('<li><a href="/signIn"><img src="../images/login.png" style="left:80%;"></a></li>');
+                  }else{
+                      document.write('<li><a href="javascript:void(0);"><img src="../images/logout.png" style="left:80%;" onclick="logout();""></a></li>');
+                  }
+              </script>
+        </ul>
+    </div>
+    <div>
+        <div class="btn-group " id="menus">
+            <div class="create_pub">광고 생성하기</div>
+            <button type="button" name="button" onclick="location.href='./newAdv'">새 광고 등록</button>
+            <button type="button" name="button" onclick="location.href='https://www.influanswer.cf/myContract'">나의 계약</button>
+            <button type="button" name="button" onclick="location.href='./myPage'">마이페이지</button>
+        </div>
+        <div class="publisherMyPage">
+            <h1>마이페이지</h1>
+            <form class="advertiseForm" action="https://www.influanswerapi.cf/advertise/mypage" method="post" id="pub_info" enctype="multipart/form-data">
+                <h4>개인정보 수정</h4>
+                <table class="advertiseForm">
+                    <tr>
+                        <td class="mypage_head">업체명</td>
+                        <td class="mypage_content"> <input type="text" name="company_name" id="company_name" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">업종</td>
+                        <td class="mypage_content"> <input type="text" name="company_cate" id="company_cate" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">대표자</td>
+                        <td class="mypage_content"> <input type="text" name="representative" id="representative" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">담당자 이름</td>
+                        <td class="mypage_content"> <input type="text" name="name" id="name" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">담당자 전화번호</td>
+                        <td class="mypage_content"> <input type="text" name="phone_number" id="phone_number" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">담당자 이메일</td>
+                        <td class="mypage_content"> <input type="text" name="email" id="email" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">팩스번호</td>
+                        <td class="mypage_content"> <input type="text" name="fax" id="fax" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">사업장 주소</td>
+                        <td class="mypage_content"> <input type="text" name="company_address" id="company_address" value=""></td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">사업자번호</td>
+                        <td class="mypage_content"> <input type="text" name="company_number" id="company_number" value=""></td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">사업자등록증</td>
+                        <td class="mypage_content"> <input type="file" name="register_image" id="register_image" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head"></td>
+                        <td class="mypage_content">
+                            <div id="hidden_id"></div><input type="button" name="" value="수정" onclick="edit()">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <form class="advertiseForm" action="index.html" method="post">
+                <h5>비밀번호 변경</h5>
+                <table>
+                    <tr>
+                        <td class="mypage_head">기존 비밀번호</td>
+                        <td class="mypage_content"> <input type="text" id="old_pw" name="old_password" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">새 비밀번호</td>
+                        <td class="mypage_content"> <input type="text" id="new_pw" name="new_password" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head">새 비밀번호 확인</td>
+                        <td class="mypage_content"> <input type="text" id="new_pw_chk" name="new_password_chk" value=""> </td>
+                    </tr>
+                    <tr>
+                        <td class="mypage_head"></td>
+                        <td class="mypage_content"><input type="button" name="" value="수정" onclick="editPW()"></td>
+                    </tr>
+                </table>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

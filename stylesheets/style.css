@@ -1,0 +1,456 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.button_main {
+    width : 180px;
+    height: 50px;
+    margin : 1px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: white;
+    color: black;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+      cursor : pointer;
+}
+
+.button_main:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.centered-align {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}
+.adv_type {
+  width : 800px;
+  height : 90px;
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: black;
+  padding : 10px;
+  color:white;
+}
+.advTypeBtn {
+  width : 700px;
+  height : 30px;
+  display: table;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  padding : 10px;
+  color:white;
+}
+.selectBtn{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.textbox {
+  outline: 0;
+  height: 30px;
+  width: 122px;
+  line-height: 42px;
+  padding: 0 16px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #212121;
+  border: 0;
+  float: left;
+  -webkit-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+.textbox:focus {
+  outline: 0;
+  background-color: #FFF;
+}
+.button_search {
+  outline: 0;
+  background: none;
+  background-color: rgba(38, 50, 56, 0.8);
+  cursor : pointer;
+  float: left;
+  height: 30px;
+  width: 30px;
+  text-align: center;
+  line-height: 42px;
+  border: 0;
+  color: #FFF;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: 16px;
+  text-rendering: auto;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  -webkit-transition: background-color .4s ease;
+  transition: background-color .4s ease;
+  -webkit-border-radius: 0 4px 4px 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.button_search:hover {
+  background-color: rgba(0, 150, 136, 0.8);
+}
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    text-align: center;
+    border-radius: 5px;
+}
+
+table, th, td {
+    border: 1px solid black;
+
+}
+tr {
+  height : 30px;
+  width : 600px;
+}
+
+.each_item {
+  position: relative;
+  border-radius: 20px;
+  border: 2px solid	#A9A9A9;
+  width: 600px;
+  height: 90px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.each_image {
+  position:absolute;
+  max-width: 120px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  top: 20px;
+  left: 30px;
+}
+.img_resize {
+  max-width: 60px;
+  max-height: 60px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.each_type {
+  position:absolute;
+  font-weight: bold;
+  color: #90EE90;
+  top: 20px;
+  left: 130px;
+}
+
+.each_name {
+  position:absolute;
+  font-weight: bold;
+  top: 40px;
+  left: 130px;
+}
+
+.each_point {
+  position:absolute;
+  font-size: 20px;
+  bottom: 20px;
+  right: 30px;
+}
+
+.detail_main {
+  display: table;
+  position: relative;
+  border: 2px solid	#A9A9A9;
+  border-radius: 20px;
+  width: 600px;
+  height: 90px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.detail_image {
+  display: table;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60px;
+  height: 60px;
+  top: 25px;
+  left: 50px;
+}
+.detail_title {
+  display: table;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 20px;
+  top: 25px;
+  left: 120px;
+}
+.detail_reward {
+  display: table;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 15px;
+  font-size: 20px;
+  right: 50px;
+}
+
+.pick_main {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  height: 110px;
+}
+.pick_table {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+  width: 700px;
+  height: 110px;
+}
+.button-pick {
+  font-size:20px;
+  width:120pt;
+  height:30pt;
+  margin : 10px 10px 10px 10px;
+}
+.contract_table {
+  margin: auto;
+  height: 200px;
+}
+
+.button-pick{
+  background:#1AAB8A;
+  color:#fff;
+  border:none;
+  position:relative;
+  height:60px;
+  font-size:1.6em;
+  padding:0 2em;
+  cursor:pointer;
+  transition:800ms ease all;
+  outline:none;
+}
+.button-pick:hover{
+  background:#fff;
+  color:#1AAB8A;
+}
+.button-pick:before, .button-pick:after{
+  content:'';
+  position:absolute;
+  top:0;
+  right:0;
+  height:2px;
+  width:0;
+  background: #1AAB8A;
+  transition:400ms ease all;
+}
+.button-pick:after{
+  right:inherit;
+  top:inherit;
+  left:0;
+  bottom:0;
+}
+.button-pick:hover:before, .button-pick:hover:after{
+  width:100%;
+  transition:800ms ease all;
+}
+.btn-group {
+  width: 200px;
+  height: 400px;
+  float: left;
+}
+
+.btn-group button {
+    background-color: #b6e1fc; /* Green background */
+    border: 1px solid 	#87CEFA; /* Green border */
+    color: white; /* White text */
+    cursor: pointer; /* Pointer/hand icon */
+    width: 180px; /* Set a width if needed */
+    height: 60px;
+    display: block; /* Make the buttons appear below each other */
+    margin: 3px;
+}
+
+.btn-group button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+    background-color: #54b9f8;
+}
+
+.create_pub {
+  width: 180px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 60px;
+  color: white;
+  margin: 3px;
+  background-color: #098bdc;
+  border: 1px solid 	#87CEFA; /* Green border */
+  height : 60px;
+}
+.form_head {
+  width: 150px;
+  height: 60px;
+  text-align: left;
+  vertical-align: middle;
+}
+.form_content {
+  width: 700px;
+  height: 60px;
+  text-align: left;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.advertiseForm {
+  float: left;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator,
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+    appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+   color: rgba(0, 0, 0, 0);
+   opacity: 1;
+   display: block;
+   background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat;
+   width: 20px;
+   height: 20px;
+   border-width: thin;
+}
+.menu_details {
+  float: left;
+  width: 1100px;
+}
+.publisherMyPage {
+  float: left;
+  width: 500px;
+}
+.mypage_head {
+  width: 140px;
+  height: 40px;
+  text-align: right;
+  padding:10px;
+}
+.mypage_content {
+  width: 240px;
+  height: 40px;
+  text-align: left;
+  padding: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  display: inline-block;
+}
+
+input[type="checkbox"][id^="chk"] {
+  display: none;
+}
+
+label {
+  padding: 1px;
+  display: block;
+  position: relative;
+  margin: 5px;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+label::before {
+  background-color: white;
+  color: white;
+  content: " ";
+  display: block;
+  border-radius: 50%;
+  border: 1px solid grey;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: 25px;
+  height: 25px;
+  text-align: center;
+  line-height: 28px;
+  transition-duration: 0.4s;
+  transform: scale(0);
+}
+
+label img {
+  height: 60px;
+  width: 80px;
+  transition-duration: 0.2s;
+  transform-origin: 50% 50%;
+}
+
+:checked+label {
+  border-color: #ddd;
+}
+
+:checked+label::before {
+  content: "V";
+  background-color: grey;
+  transform: scale(1);
+  z-index: 100;
+}
+
+:checked+label img {
+  transform: scale(0.9);
+  box-shadow: 0 0 5px #333;
+  z-index: -1;
+}
+
+.date_table {
+  height: 70px;
+  margin: auto;
+}
+.date_table_detail {
+  height: 70px;
+  width: 233px;
+}
+.tdHit{
+    width: 50px;
+}
+.tdCA{
+    width: 50px;
+}
+.tdTI{
+    width: 100px;
+}
+
+.banner {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    margin: 0 auto;
+    text-align: center;
+}
+
